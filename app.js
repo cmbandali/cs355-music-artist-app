@@ -22,6 +22,9 @@ let server = http.createServer((req,res)=>{
     html_stream.pipe(res);
   } else if( req.url.includes('/search')){
     console.log(`A new search request was made from ${req.connection.remoteAddress} for ${req.url}`);
+    const querystring = require('querystring');
+    let user_input = req.url;
+    console.log(querystring.parse(user_input, "/search?"));
     res.writeHead(200,{'Content-Type':'text/html'});
     search_stream.pipe(res);
   }
