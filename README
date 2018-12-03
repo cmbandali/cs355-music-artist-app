@@ -1,0 +1,5 @@
+TODO: 	get image url from artist_data,
+		download image,
+		create conditional statement that checks cache before querying spotify api,
+		create artist webpage
+

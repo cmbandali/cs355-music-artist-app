@@ -131,10 +131,10 @@ let server = http.createServer((req,res)=>{
 
     /*writes to cache (aka authentication_res.json)*/
     function create_cache(authentication_res_data){
-      data = JSON.stringify(authentication_res_data);
+      data = JSON.stringify(authentication_res_data, null, 2);
       fs.writeFile('./auth/authentication_res.json', data, (err) => {
         if (err) throw err;
-        console.log('The file has been saved!');
+        console.log('authentication data has been saved');
       });
     }
 
@@ -143,8 +143,73 @@ let server = http.createServer((req,res)=>{
 
       console.log(`searching for ${user_input.artist}...`);
       let access_token = cached_auth.access_token;
-      let spotify_url = https://api.spotify.com/v1/search;
-    }
+      let spotify_url = "https://api.spotify.com/v1/search";
+
+      let req_params = {
+        q: user_input.artist,
+        type: 'artist',
+        access_token: access_token
+      };
+
+      req_params = querystring.stringify(req_params);
+      let query_url = spotify_url + '?' + req_params;
+
+      let img_path = `./artists/${user_input.artist}.jpg`;
+
+      /*get request has to go into conditional statement that checks cache*/
+      let artist_req = https.get(query_url, artist_res => {
+
+        console.log("reponse status: " + artist_res.statusCode);
+
+        let body = "";
+        artist_res.on('data', (data) => {
+          body += data;
+        });
+
+        let img = fs.createWriteStream(img_path,{'encoding':null});
+
+        img.on('error', (e) => {
+          console.log("There was an error: " + e);
+        });
+
+        img.on('finish', function() {
+          /*cache artist data*/
+          let artist_res_data = JSON.parse(body);
+          artist_info = create_artist_cache(artist_res_data, user_input.artist);
+
+          /*get image from cached data*/
+          // let img_url = artist_info.img_url;
+        });
+
+        artist_res.pipe(img);
+
+      }); //get request
+
+      artist_req.on('error', function(err){
+        console.log("There was an error: " + err);
+      });
+
+      /*artist cache*/
+      function create_artist_cache(artist_data, artist_name) {
+        data = JSON.stringify(artist_data, null, 2);
+        let cached = false;
+        fs.writeFile(`./artists/${artist_name}_data.json`, data, (err) => {
+          if (err) throw err;
+          console.log('artist data has been cached');
+          cached = true;
+        });
+        /*return relavent information*/
+        // while(!cached);
+        // console.log(cached);
+        // let artist_info =  {
+        //   genres: artist_data.items[0].genres,
+        //   img_url: artist_data.items[0].images[0].url,
+        //   name: artist_data.items[0].name
+        // };
+        // return artist_info;
+      }
+
+    } // create search request
 
     /*!!remove search_stream.pipe(res); in beginning when you stream artist page*/
   } //else if

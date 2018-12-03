@@ -1,0 +1,655 @@
+{
+  "artists": {
+    "href": "https://api.spotify.com/v1/search?query=Maya&type=artist&offset=0&limit=20",
+    "items": [
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/2i7CQcVBh2K6uOR3CH09M1"
+        },
+        "followers": {
+          "href": null,
+          "total": 113616
+        },
+        "genres": [
+          "death core",
+          "djent",
+          "mathcore",
+          "melodic metalcore",
+          "metalcore",
+          "screamo"
+        ],
+        "href": "https://api.spotify.com/v1/artists/2i7CQcVBh2K6uOR3CH09M1",
+        "id": "2i7CQcVBh2K6uOR3CH09M1",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/3f2f4a1c281061477b5d2e8521bd65cd6f99a1ab",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/f0d4510890946635dca5341ba8cd8b5ee5aa3601",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/87ed450f6349c32cdf68daa18d54d5f11827a731",
+            "width": 160
+          }
+        ],
+        "name": "Veil Of Maya",
+        "popularity": 54,
+        "type": "artist",
+        "uri": "spotify:artist:2i7CQcVBh2K6uOR3CH09M1"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6XwwFnewNgWp81MYMK8zLq"
+        },
+        "followers": {
+          "href": null,
+          "total": 108444
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/6XwwFnewNgWp81MYMK8zLq",
+        "id": "6XwwFnewNgWp81MYMK8zLq",
+        "images": [
+          {
+            "height": 500,
+            "url": "https://i.scdn.co/image/cafd0b9ebe789850b82badece019b53a4c4b7d41",
+            "width": 800
+          },
+          {
+            "height": 400,
+            "url": "https://i.scdn.co/image/5afaaae83088a909bd78db0844ef9ded410545ab",
+            "width": 640
+          },
+          {
+            "height": 125,
+            "url": "https://i.scdn.co/image/4e06eca6a3678ed4ad3a8a1078104f39ed24fbe6",
+            "width": 200
+          },
+          {
+            "height": 40,
+            "url": "https://i.scdn.co/image/08cd3c21093d306615f8242bf0583a28a60c3870",
+            "width": 64
+          }
+        ],
+        "name": "Edward Maya",
+        "popularity": 61,
+        "type": "artist",
+        "uri": "spotify:artist:6XwwFnewNgWp81MYMK8zLq"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6TshTCYwh9ySzOO6Jy4Ux2"
+        },
+        "followers": {
+          "href": null,
+          "total": 144964
+        },
+        "genres": [
+          "deep disco house",
+          "deep house",
+          "electra",
+          "house",
+          "microhouse",
+          "minimal tech house",
+          "tech house"
+        ],
+        "href": "https://api.spotify.com/v1/artists/6TshTCYwh9ySzOO6Jy4Ux2",
+        "id": "6TshTCYwh9ySzOO6Jy4Ux2",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/9109d918a8c139a45f31ef25c8bf5ef95b22f08a",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/13659ba95ba21480516993966adeb475f2431280",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/5b1f1e38a7835960032c1f14cfed95972a6fbd25",
+            "width": 160
+          }
+        ],
+        "name": "Maya Jane Coles",
+        "popularity": 56,
+        "type": "artist",
+        "uri": "spotify:artist:6TshTCYwh9ySzOO6Jy4Ux2"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/4b5UHpUmrPycvsgu2M3ujz"
+        },
+        "followers": {
+          "href": null,
+          "total": 4695
+        },
+        "genres": [
+          "arab pop",
+          "lebanese pop"
+        ],
+        "href": "https://api.spotify.com/v1/artists/4b5UHpUmrPycvsgu2M3ujz",
+        "id": "4b5UHpUmrPycvsgu2M3ujz",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/0072b4971f3e91cee54dc137a93594006f1aecc3",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/be3986a127591a0fee50f072fad919ccfbc96662",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/3c5cc42399edd34babecc6ad81bc7e81e7d0db7b",
+            "width": 160
+          }
+        ],
+        "name": "Maya Diab",
+        "popularity": 50,
+        "type": "artist",
+        "uri": "spotify:artist:4b5UHpUmrPycvsgu2M3ujz"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/64msO0RZHKEtUsVvNtOrS4"
+        },
+        "followers": {
+          "href": null,
+          "total": 50
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/64msO0RZHKEtUsVvNtOrS4",
+        "id": "64msO0RZHKEtUsVvNtOrS4",
+        "images": [],
+        "name": "Maya Avedis",
+        "popularity": 61,
+        "type": "artist",
+        "uri": "spotify:artist:64msO0RZHKEtUsVvNtOrS4"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/4rDcBPP6ea23Vaix3EFFWO"
+        },
+        "followers": {
+          "href": null,
+          "total": 11167
+        },
+        "genres": [
+          "turbo folk"
+        ],
+        "href": "https://api.spotify.com/v1/artists/4rDcBPP6ea23Vaix3EFFWO",
+        "id": "4rDcBPP6ea23Vaix3EFFWO",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/7872f2ea1441ec9320d86d15c0ec74cd18329c7a",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/bdce5e7d3af6c695cff5519de9d35db775f05939",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/be28bf2b868e3574e807852ef7bd77615796fd08",
+            "width": 160
+          }
+        ],
+        "name": "Maya Berovic",
+        "popularity": 53,
+        "type": "artist",
+        "uri": "spotify:artist:4rDcBPP6ea23Vaix3EFFWO"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/58J6wzv0w330EWoHyVezCV"
+        },
+        "followers": {
+          "href": null,
+          "total": 93
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/58J6wzv0w330EWoHyVezCV",
+        "id": "58J6wzv0w330EWoHyVezCV",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/d44ec5e51abcadbde6df0f7535056ce0832cf787",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/2e423e618eced140ccfedbc2f000ce5234bd40b0",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/f201f3135d4fcf0cdaffbd8eb78b4db9a5bb1c20",
+            "width": 64
+          }
+        ],
+        "name": "Maya",
+        "popularity": 47,
+        "type": "artist",
+        "uri": "spotify:artist:58J6wzv0w330EWoHyVezCV"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/2Q6FuPwJeCQMak41xdr4nn"
+        },
+        "followers": {
+          "href": null,
+          "total": 16
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/2Q6FuPwJeCQMak41xdr4nn",
+        "id": "2Q6FuPwJeCQMak41xdr4nn",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/6b1167f880b2f77a7c2c891e4062ec5d61298b2f",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/ad920516f32b03a1832452e2c05ffb47af63a43c",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/33a010d4909deb171cdab3a8ae938d64edf541b2",
+            "width": 160
+          }
+        ],
+        "name": "Maya Nadir",
+        "popularity": 31,
+        "type": "artist",
+        "uri": "spotify:artist:2Q6FuPwJeCQMak41xdr4nn"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/12lFBaie1IW75Q7eViLrjd"
+        },
+        "followers": {
+          "href": null,
+          "total": 4521
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/12lFBaie1IW75Q7eViLrjd",
+        "id": "12lFBaie1IW75Q7eViLrjd",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/83b410dc11b5f75656a48ad96d5719b732b046d7",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/95cb76ba25a9d044fcab3c7387157326b18676a4",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/8fa420988d6c9b2419fb68e4ff62a4f7b7b7f7f9",
+            "width": 160
+          }
+        ],
+        "name": "Maya Payne",
+        "popularity": 33,
+        "type": "artist",
+        "uri": "spotify:artist:12lFBaie1IW75Q7eViLrjd"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/2zVUEA9Y4e5gpnALwgNav9"
+        },
+        "followers": {
+          "href": null,
+          "total": 25897
+        },
+        "genres": [
+          "opm"
+        ],
+        "href": "https://api.spotify.com/v1/artists/2zVUEA9Y4e5gpnALwgNav9",
+        "id": "2zVUEA9Y4e5gpnALwgNav9",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/34c2d501eef697a9144c97b14fcf99a1bd0d7984",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/8ce9c3ff819097ff5520b248c13aa04ab8418b1f",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/a4374946c1a963e0695c90e3cb3a321ff237a7a4",
+            "width": 64
+          }
+        ],
+        "name": "Migz & Maya",
+        "popularity": 43,
+        "type": "artist",
+        "uri": "spotify:artist:2zVUEA9Y4e5gpnALwgNav9"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/71RNuTt5UJOTDNFAGG5zK6"
+        },
+        "followers": {
+          "href": null,
+          "total": 1408
+        },
+        "genres": [
+          "diva house"
+        ],
+        "href": "https://api.spotify.com/v1/artists/71RNuTt5UJOTDNFAGG5zK6",
+        "id": "71RNuTt5UJOTDNFAGG5zK6",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/edb1bb52f65243df7185c9debb62d185ad05df61",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/638d9814d4fe47ddcd97be25594d00446209625d",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/c5c1157b536821898e3390b2cfbf24ce43ec84f8",
+            "width": 64
+          }
+        ],
+        "name": "Maya Simantov",
+        "popularity": 41,
+        "type": "artist",
+        "uri": "spotify:artist:71RNuTt5UJOTDNFAGG5zK6"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/2f7l8CBj9S5ZW92kw2M2pb"
+        },
+        "followers": {
+          "href": null,
+          "total": 2348
+        },
+        "genres": [
+          "classical cello"
+        ],
+        "href": "https://api.spotify.com/v1/artists/2f7l8CBj9S5ZW92kw2M2pb",
+        "id": "2f7l8CBj9S5ZW92kw2M2pb",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/c9af2125cbe07fbfb29c78e87007bc0f78cf2dfa",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/a4df961ec8fcd7f7d06883e7cd283254b0bfbe31",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/ca1b372bb5e20b7249ac129541e035a6141b0c58",
+            "width": 160
+          }
+        ],
+        "name": "Maya Beiser",
+        "popularity": 30,
+        "type": "artist",
+        "uri": "spotify:artist:2f7l8CBj9S5ZW92kw2M2pb"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/3jPSmQEwdBu8xw5WoiFmEU"
+        },
+        "followers": {
+          "href": null,
+          "total": 958
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/3jPSmQEwdBu8xw5WoiFmEU",
+        "id": "3jPSmQEwdBu8xw5WoiFmEU",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/67d7ecdc82f16ec1476933233088410767fc6949",
+            "width": 640
+          },
+          {
+            "height": 320,
+            "url": "https://i.scdn.co/image/33d903e66fd7035d8d26dd71f1e7866eb0ec7398",
+            "width": 320
+          },
+          {
+            "height": 160,
+            "url": "https://i.scdn.co/image/0c512196e7b8339fb99c505e5c93bf84e9c9d9f5",
+            "width": 160
+          }
+        ],
+        "name": "Amber Maya",
+        "popularity": 36,
+        "type": "artist",
+        "uri": "spotify:artist:3jPSmQEwdBu8xw5WoiFmEU"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6ozV1xLgTandFCQGoDz54O"
+        },
+        "followers": {
+          "href": null,
+          "total": 500
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/6ozV1xLgTandFCQGoDz54O",
+        "id": "6ozV1xLgTandFCQGoDz54O",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/559db213f36705033f8fc1e7d46c07464ba1ac24",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/38039bfa9604138da937c32a11eb077b7f4d9e2d",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/9600505d2e34bf7632d5d001b0e902019a6f4acd",
+            "width": 64
+          }
+        ],
+        "name": "Maya",
+        "popularity": 34,
+        "type": "artist",
+        "uri": "spotify:artist:6ozV1xLgTandFCQGoDz54O"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/73n1XsUsBUw8XKg1W5DQaf"
+        },
+        "followers": {
+          "href": null,
+          "total": 867
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/73n1XsUsBUw8XKg1W5DQaf",
+        "id": "73n1XsUsBUw8XKg1W5DQaf",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/26b3f72f246ba17e99cb87afa30a12349adc83f0",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/8f2da645c62f7274ccd00bdfcaaf14fc18b3f10a",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/0159e9bb1a87901dd7d18108747b1a3ead3bff14",
+            "width": 64
+          }
+        ],
+        "name": "Javier Martinez Maya",
+        "popularity": 27,
+        "type": "artist",
+        "uri": "spotify:artist:73n1XsUsBUw8XKg1W5DQaf"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/4kzvsvRwyAj0GHs1RGsFg8"
+        },
+        "followers": {
+          "href": null,
+          "total": 654
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/4kzvsvRwyAj0GHs1RGsFg8",
+        "id": "4kzvsvRwyAj0GHs1RGsFg8",
+        "images": [
+          {
+            "height": 800,
+            "url": "https://i.scdn.co/image/ffea49d313b8b3ef3fba1154a6c62cb95d6b9174",
+            "width": 533
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/146a1307f2db3862445df9f18116f1b046b45f1b",
+            "width": 200
+          },
+          {
+            "height": 96,
+            "url": "https://i.scdn.co/image/ffbd3d3ef6871bff1326c0b1058125b4d29dbe6e",
+            "width": 64
+          }
+        ],
+        "name": "Maya Azucena",
+        "popularity": 26,
+        "type": "artist",
+        "uri": "spotify:artist:4kzvsvRwyAj0GHs1RGsFg8"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/1fR8mC7JJpa7RrjzfbZ6Of"
+        },
+        "followers": {
+          "href": null,
+          "total": 212
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/1fR8mC7JJpa7RrjzfbZ6Of",
+        "id": "1fR8mC7JJpa7RrjzfbZ6Of",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/0f07fff29b3a63dfe69fd0e4d4256b798fbf2a43",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/902ec4491b6858b0a00cd3fa9fb66eb8bf5348cb",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ff71e5a55a30859e5550887bb8bc66fb5af17b90",
+            "width": 64
+          }
+        ],
+        "name": "Maya",
+        "popularity": 37,
+        "type": "artist",
+        "uri": "spotify:artist:1fR8mC7JJpa7RrjzfbZ6Of"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/5RCRTsD0n0SJwxT5PVWhEA"
+        },
+        "followers": {
+          "href": null,
+          "total": 38
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/5RCRTsD0n0SJwxT5PVWhEA",
+        "id": "5RCRTsD0n0SJwxT5PVWhEA",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/fcb59f50e68da88fce3cc6c0cb27bbb53ed220cb",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/df50c9aa07d4b94e176fba0ca3d05de4f51841cb",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/fd905c8f7070ca849efd1474edc1c91f93522659",
+            "width": 64
+          }
+        ],
+        "name": "Maya Boog",
+        "popularity": 23,
+        "type": "artist",
+        "uri": "spotify:artist:5RCRTsD0n0SJwxT5PVWhEA"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/0mpTUuJ2Wpif3c80roJ0tR"
+        },
+        "followers": {
+          "href": null,
+          "total": 54
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/0mpTUuJ2Wpif3c80roJ0tR",
+        "id": "0mpTUuJ2Wpif3c80roJ0tR",
+        "images": [],
+        "name": "Maya Tuttle",
+        "popularity": 22,
+        "type": "artist",
+        "uri": "spotify:artist:0mpTUuJ2Wpif3c80roJ0tR"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/4JOTbBhV9Qp7zCkzaQww1p"
+        },
+        "followers": {
+          "href": null,
+          "total": 115
+        },
+        "genres": [],
+        "href": "https://api.spotify.com/v1/artists/4JOTbBhV9Qp7zCkzaQww1p",
+        "id": "4JOTbBhV9Qp7zCkzaQww1p",
+        "images": [],
+        "name": "Maya Rudolph",
+        "popularity": 21,
+        "type": "artist",
+        "uri": "spotify:artist:4JOTbBhV9Qp7zCkzaQww1p"
+      }
+    ],
+    "limit": 20,
+    "next": "https://api.spotify.com/v1/search?query=Maya&type=artist&offset=20&limit=20",
+    "offset": 0,
+    "previous": null,
+    "total": 852
+  }
+}
