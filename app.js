@@ -46,6 +46,7 @@ let server = http.createServer((req,res)=>{
     /*user input converted to an object*/
     let user_input = req.url;
     user_input = querystring.parse(user_input, "/search?"); //{ artist: 'Drake' }
+    user_input.artist = user_input.artist.toUpperCase(); //so that duplicate caches arn't made for the same artist
 
     /*Spotify identification - going to be using client credentials flow*/
     let post_data = {
@@ -141,6 +142,7 @@ let server = http.createServer((req,res)=>{
     /*start the search request*/
     function create_search_req(cached_auth, res, user_input) {
 
+      /*artist search params*/
       console.log(`searching for ${user_input.artist}...`);
       let access_token = cached_auth.access_token;
       let spotify_url = "https://api.spotify.com/v1/search";
@@ -156,57 +158,81 @@ let server = http.createServer((req,res)=>{
 
       let img_path = `./artists/${user_input.artist}.jpg`;
 
-      /*get request has to go into conditional statement that checks cache*/
-      let artist_req = https.get(query_url, artist_res => {
+      /*Check artist exists in cache*/
+      let artist_cache_valid = false;
+      let artist_cache = `./artists/${user_input.artist}_data.json`;
 
-        console.log("reponse status: " + artist_res.statusCode);
+      if(fs.existsSync(artist_cache)) {
+        content = fs.readFileSync(artist_cache, 'utf-8');
+        cached_artist_data = JSON.parse(content); //converts content to js object
+        artist_cache_valid = true;
+        console.log('artist already existed in cache');
+      }
 
-        let body = "";
-        artist_res.on('data', (data) => {
-          body += data;
+      /*when artist is cached, create artist webpage else get artist from spotify and cache data*/
+      if(artist_cache_valid) {
+        create_artist_page(cached_artist_data);
+      } else {
+
+        /*get request has to go into conditional statement that checks cache*/
+        let artist_req = https.get(query_url, artist_res => {
+
+          /*callback function starts*/
+          console.log("reponse status: " + artist_res.statusCode);
+
+          let body = "";
+          artist_res.on('data', (data) => {
+            body += data;
+          });
+
+          let img = fs.createWriteStream(img_path,{'encoding':null});
+
+          img.on('error', (e) => {
+            console.log("There was an error: " + e);
+          });
+
+          img.on('finish', function() {
+
+            /*cache artist data*/
+            let artist_res_data = JSON.parse(body);
+            artist_info = create_artist_cache(artist_res_data, user_input.artist);
+            create_artist_page(artist_res_data);
+
+            /*get image from cached data*/
+            // let img_url = artist_info.img_url;
+          });
+
+          artist_res.pipe(img);
+          /*callback function ends*/
+
+        }); //get request
+
+        artist_req.on('error', function(err){
+          console.log("There was an error: " + err);
         });
 
-        let img = fs.createWriteStream(img_path,{'encoding':null});
-
-        img.on('error', (e) => {
-          console.log("There was an error: " + e);
-        });
-
-        img.on('finish', function() {
-          /*cache artist data*/
-          let artist_res_data = JSON.parse(body);
-          artist_info = create_artist_cache(artist_res_data, user_input.artist);
-
-          /*get image from cached data*/
-          // let img_url = artist_info.img_url;
-        });
-
-        artist_res.pipe(img);
-
-      }); //get request
-
-      artist_req.on('error', function(err){
-        console.log("There was an error: " + err);
-      });
+      } //else statement
 
       /*artist cache*/
       function create_artist_cache(artist_data, artist_name) {
         data = JSON.stringify(artist_data, null, 2);
-        let cached = false;
         fs.writeFile(`./artists/${artist_name}_data.json`, data, (err) => {
           if (err) throw err;
           console.log('artist data has been cached');
-          cached = true;
         });
-        /*return relavent information*/
-        // while(!cached);
-        // console.log(cached);
-        // let artist_info =  {
-        //   genres: artist_data.items[0].genres,
-        //   img_url: artist_data.items[0].images[0].url,
-        //   name: artist_data.items[0].name
-        // };
-        // return artist_info;
+      }
+
+      /*Create artist webpage*/
+      function create_artist_page(artist_res_data) {
+        console.log(`creating webpage for ${user_input.artist}...`);
+        console.log(artist_res_data.artists.items[0].genres);
+        console.log(artist_res_data.artists.items[0].images[0].url);
+        console.log(artist_res_data.artists.items[0].name);
+        let webpage = `<h1>${artist_res_data.artists.items[0].name}</h1><p>${artist_res_data.artists.items[0].genres.join()}</p><img src=${artist_res_data.artists.items[0].images[0].url} />`
+
+        console.log(webpage);
+        res.render(webpage);
+        // let search_stream = fs.createReadStream('./html/search-form.html');
       }
 
     } // create search request
