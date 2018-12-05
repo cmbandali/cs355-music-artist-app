@@ -231,7 +231,6 @@ let server = http.createServer((req,res)=>{
         let webpage = `<h1>${artist_res_data.artists.items[0].name}</h1><p>${artist_res_data.artists.items[0].genres.join()}</p><img src=${artist_res_data.artists.items[0].images[0].url} />`
 
         console.log(webpage);
-        res.render(webpage);
         // let search_stream = fs.createReadStream('./html/search-form.html');
       }
 
