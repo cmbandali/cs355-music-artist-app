@@ -14,7 +14,7 @@ const port = 3000;
 let search_stream = fs.createReadStream('./html/search-form.html');
 
 let server = http.createServer((req,res)=>{
-  
+
   res.writeHead(200,{'Content-Type':'text/html'});
 
   if(req.url === '/'){
@@ -31,14 +31,23 @@ let server = http.createServer((req,res)=>{
 
   } else if(req.url.includes('/artists/')){
 
+    /*To search for an artist type: http://localhost:3000/artists/artist=artist_name*/
     console.log(`A new artist request was made from ${req.connection.remoteAddress} for ${req.url}`);
     res.writeHead(200,{'Content-Type':'image/jpeg'});
-    // html_stream.pipe(res);
-    // image_stream.on('error', function(err) {
-    //   console.log(err);
-    //   res.writeHead(404);
-    //   return res.end();
-    // })
+    let user_input = querystring.parse(req.url, "/artists/");
+    let artist = user_input.artist.toUpperCase();
+
+    let artist_cache = `./artists/${artist}.jpg`;
+
+    if(fs.existsSync(artist_cache)) {
+      console.log('artist exists in cache');
+      let webpage = `<img src=${artist_cache} />`;
+      console.log(webpage);
+      res.end(webpage);
+    }
+
+    console.log(user_input);
+
   } else if( req.url.includes('/search')){
     console.log(`A new search request was made from ${req.connection.remoteAddress} for ${req.url}`);
     search_stream.pipe(res);
@@ -68,21 +77,6 @@ let server = http.createServer((req,res)=>{
     }
 
     const authentication_req_url = 'https://accounts.spotify.com/api/token';
-    // let request_sent_time = new Date();
-
-    /*Create the request using https.request and supplying it relevant data*/
-    // let authentication_req = https.request(options, (authentication_res) => {
-    //   recieved_authentication(authentication_res,res,user_input,request_sent_time); /*Callback function to be triggered when we recieve a response*/
-    // });
-
-    // authentication_req.on('error', (e) => {
-    //   console.log(e);
-    // });
-
-    // /*write function sends request and puts post_data into the body of the request since method is POST*/
-    // authentication_req.write(post_data);
-    // console.log("Requesting Token");
-    // authentication_req.end();
 
     /*Check if cached access_token exists and if it is expired*/
     let cache_valid = false;
@@ -134,7 +128,7 @@ let server = http.createServer((req,res)=>{
     function create_cache(authentication_res_data){
       data = JSON.stringify(authentication_res_data, null, 2);
       fs.writeFile('./auth/authentication_res.json', data, (err) => {
-        if (err) throw err;
+        if (err) console.log("Error: " + err);/*throw err;*/
         console.log('authentication data has been saved');
       });
     }
@@ -171,6 +165,7 @@ let server = http.createServer((req,res)=>{
 
       /*when artist is cached, create artist webpage else get artist from spotify and cache data*/
       if(artist_cache_valid) {
+        console.log(cached_artist_data);
         create_artist_page(cached_artist_data);
       } else {
 
@@ -185,24 +180,27 @@ let server = http.createServer((req,res)=>{
             body += data;
           });
 
-          let img = fs.createWriteStream(img_path,{'encoding':null});
+          artist_res.on('end', function() {
+              /*cache artist data*/
+              let artist_res_data = JSON.parse(body);
+              create_artist_cache(artist_res_data, user_input.artist);
 
-          img.on('error', (e) => {
-            console.log("There was an error: " + e);
+              /*get image*/
+              image_url = artist_res_data.artists.items[0].images[0].url;
+              let image_req = https.get(image_url, image_res => {
+                  let new_img = fs.createWriteStream(img_path, {'encoding':null});
+                  image_res.pipe(new_img);
+                  new_img.on('finish', function() {
+                      let webpage = create_artist_page(artist_res_data);
+                  });
+              });
+
+              image_req.on('error', function(err) {
+                  console.log("There was an error: " + err);
+              });
+
           });
 
-          img.on('finish', function() {
-
-            /*cache artist data*/
-            let artist_res_data = JSON.parse(body);
-            artist_info = create_artist_cache(artist_res_data, user_input.artist);
-            create_artist_page(artist_res_data);
-
-            /*get image from cached data*/
-            // let img_url = artist_info.img_url;
-          });
-
-          artist_res.pipe(img);
           /*callback function ends*/
 
         }); //get request
@@ -228,24 +226,17 @@ let server = http.createServer((req,res)=>{
         console.log(artist_res_data.artists.items[0].genres);
         console.log(artist_res_data.artists.items[0].images[0].url);
         console.log(artist_res_data.artists.items[0].name);
-        let webpage = `<h1>${artist_res_data.artists.items[0].name}</h1><p>${artist_res_data.artists.items[0].genres.join()}</p><img src=${artist_res_data.artists.items[0].images[0].url} />`
-
+        let webpage = `<h1>${artist_res_data.artists.items[0].name}</h1><p>${artist_res_data.artists.items[0].genres.join()}</p><img src=${img_path} />`
         console.log(webpage);
-        // let search_stream = fs.createReadStream('./html/search-form.html');
+        res.end(webpage);
+        return webpage;
       }
 
     } // create search request
 
-    /*!!remove search_stream.pipe(res); in beginning when you stream artist page*/
   } //else if
 
 }); //server
 
 console.log('Now listening on port ' + port);
 server.listen(port, server_address);
-
-// image_stream.on('error', function(err) {
-//   console.log(err);
-//   res.writeHead(404);
-//   return res.end();
-// });
