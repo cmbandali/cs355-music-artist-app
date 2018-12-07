@@ -15,9 +15,8 @@ let search_stream = fs.createReadStream('./html/search-form.html');
 
 let server = http.createServer((req,res)=>{
 
-  res.writeHead(200,{'Content-Type':'text/html'});
-
   if(req.url === '/'){
+    res.writeHead(200,{'Content-Type':'text/html'});
 
     console.log(`A new request was made from ${req.connection.remoteAddress} for ${req.url}`);
     res.writeHead(200,{'Content-Type':'text/html'});
@@ -33,27 +32,32 @@ let server = http.createServer((req,res)=>{
 
     /*To search for an artist type: http://localhost:3000/artists/artist name.jpg*/
     console.log(`A new artist request was made from ${req.connection.remoteAddress} for ${req.url}`);
-    res.writeHead(200,{'Content-Type':'image/jpeg'});
+
     let user_input = querystring.parse(req.url, "/artists/");
     artist = Object.keys(user_input)[0];
-    // console.log("artist: " + artist);
 
     let artist_cache = `./artists/${artist}`;
 
     if(fs.existsSync(artist_cache)) {
       console.log('artist exists in cache');
-      let webpage = `<img src=${artist_cache} />`;
-    //   console.log(webpage);
-      res.end(webpage);
-    //   pull_up_page(artist);
+      let image_stream = fs.createReadStream(artist_cache);
+      res.writeHead(200,{'Content-Type':'image/jpeg'});
+      image_stream.pipe(res);
+
+      image_stream.on('error', function() {
+        console.log(err);
+        res.writeHead(404);
+        return res.end();
+      });
+
     } else {
         let webpage = `<h1>artist does not exist in cache</h1>`;
         console.log(webpage);
-        // res.end(webpage);
-        search_stream.pipe(res);
     }
 
   } else if( req.url.includes('/search')){
+    res.writeHead(200,{'Content-Type':'text/html'});
+
     console.log(`A new search request was made from ${req.connection.remoteAddress} for ${req.url}`);
     /*user input converted to an object*/
     let user_input = req.url;
@@ -224,41 +228,50 @@ let server = http.createServer((req,res)=>{
 
           /*Create artist webpage*/
           function create_artist_page(artist_res_data) {
-            console.log(`creating webpage for ${user_input.artist}...`);
-            let document = './html/search_form.html';
-            // let webpage = `<h1>${user_input.artist}</h1><p>${artist_res_data.artists.items[0].genres.join()}</p><img src="./artists/${user_input.artist}.jpg" />`;
+            let cache_valid = false;
+            let html_cache = `./html/${user_input.artist}.html`;
 
-            let webpage = `<!DOCTYPE html>
-                            <html>
-                              <head>
-                                <title>Music Artist Search</title>
-                              </head>
-                              <body>
-                                <h1>${user_input.artist}</h1>
-                                <p>${artist_res_data.artists.items[0].genres.join()}</p>
-                                <img src="../artists/${user_input.artist}.jpg" />
-                              </body>
-                            </html>`
-            cache_artist_page(webpage, user_input.artist);
-            pull_up_page(user_input.artist);
-            console.log(webpage);
-            // res.end(webpage);
-            // return webpage;
-            // webpage.display;
-          }
+            if(fs.existsSync(html_cache)) {
+                console.log(`pulling up webpage for ${user_input.artist}...`);
+                pull_up_page(user_input.artist);
+            } else {
+                console.log(`creating webpage for ${user_input.artist}...`);
+                let document = './html/search_form.html';
 
-          /*artist cache*/
+                let webpage = `<!DOCTYPE html>
+                                <html>
+                                  <head>
+                                    <title>Music Artist Search</title>
+                                  </head>
+                                  <body>
+                                    <h1>${user_input.artist}</h1>
+                                    <p>${artist_res_data.artists.items[0].genres.join()}</p>
+                                    <img src="../artists/${user_input.artist}.jpg" />
+                                  </body>
+                                </html>`
+
+                cache_artist_page(webpage, user_input.artist);
+                pull_up_page(user_input.artist);
+                console.log(webpage);
+            } //if-else end
+
+        } //create_artist_page function end
+
+          /*cache artist webpage*/
           function cache_artist_page(artist_html, artist_name) {
-            // data = JSON.stringify(artist_html);
+
             fs.writeFile(`./html/${artist_name}.html`, artist_html, (err) => {
               if (err) throw err;
               console.log('artist page has been cached');
             });
+
           }
+
           function pull_up_page(artist) {
               let artist_stream = fs.createReadStream(`./html/${artist}.html`);
               stream(artist_stream);
           }
+
           function stream(artist_stream){
               artist_stream.pipe(res);
           }
